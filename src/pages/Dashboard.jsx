@@ -1,16 +1,19 @@
+import React from "react";
+
 function Dashboard() {
   const stats = [
-    { title: "Customers", value: 120 },
-    { title: "Leads", value: 45 },
-    { title: "Deals", value: 18 }
+    { title: "Customers", value: 120, color: "#facc15" },
+    { title: "Leads", value: 45, color: "#34d399" },
+    { title: "Deals", value: 18, color: "#60a5fa" },
+    { title: "Revenue", value: "$12K", color: "#f87171" },
   ];
 
   return (
-    <div>
-      <h2 style={{ color: "#1f2937" }}>Dashboard</h2>
-      <div style={{ display: "flex", gap: "20px", marginTop: "20px" }}>
+    <div className="dashboard-container">
+      <h2 className="dashboard-title">Dashboard</h2>
+      <div className="cards-wrapper">
         {stats.map((stat, i) => (
-          <div key={i} style={cardStyle}>
+          <div className="card" key={i} style={{ backgroundColor: stat.color }}>
             <h3>{stat.value}</h3>
             <p>{stat.title}</p>
           </div>
@@ -19,14 +22,5 @@ function Dashboard() {
     </div>
   );
 }
-
-const cardStyle = {
-  padding: "20px",
-  backgroundColor: "#f3f4f6",
-  borderRadius: "10px",
-  width: "150px",
-  textAlign: "center",
-  boxShadow: "0 4px 6px rgba(0,0,0,0.1)"
-};
 
 export default Dashboard;

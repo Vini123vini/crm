@@ -13,9 +13,8 @@ function Login() {
       alert("Please enter email and password!");
       return;
     }
-    // For demo: login success alert
     alert(`Logged in as ${email}${remember ? " (Remember Me)" : ""}`);
-    navigate("/dashboard"); // Navigate to dashboard
+    navigate("/dashboard");
   };
 
   return (

@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Customers from "./pages/Customers";
@@ -7,11 +8,17 @@ import Leads from "./pages/Leads";
 import Sidebar from "./components/Sidebar";
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <BrowserRouter>
-      <div style={{ display: "flex" }}>
-        <Sidebar /> {/* Sidebar always visible */}
-        <div style={{ padding: "20px", width: "100%" }}>
+      <div className="app-container">
+        <Sidebar open={menuOpen} />
+        <div className="main-content">
+          <div className="menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
+            ☰
+          </div>
+
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />

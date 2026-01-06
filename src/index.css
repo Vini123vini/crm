@@ -1,13 +1,259 @@
-body {
+/* ================= RESET ================= */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background: #f4f6f8;
+}
+
+/* ================= APP LAYOUT ================= */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  width: 220px;
+  background: #1f2937;
+  color: #fff;
+  padding: 16px;
+  flex-shrink: 0;
+}
+
+.sidebar .logo {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #facc15;
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background: #374151;
+}
+
+/* ================= MAIN ================= */
+.main-content {
+  flex: 1;
+  padding: 20px;
+  width: 100%;
+}
+
+.menu-btn {
+  display: none;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* ================= DASHBOARD ================= */
+.dashboard-title {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  padding: 16px;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* ================= COMMON PAGE CONTAINER ================= */
+.page-container {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+/* ================= CUSTOMER PAGE ================= */
+/* ================= CUSTOMER PAGE (FIXED) ================= */
+
+/* ================= CUSTOMERS PAGE ONLY ================= */
+
+/* ================= CUSTOMER TABLE ================= */
+
+.customers-page {
+  width: 100%;
+}
+
+.customers-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.customers-table {
+  width: 100%;
+  min-width: 720px; /* prevents column cut */
+  border-collapse: collapse;
+}
+
+.customers-table th,
+.customers-table td {
+  padding: 12px 14px;
+  border: 1px solid #e5e7eb;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.customers-table thead {
+  background-color: #1f2937;
+  color: white;
+}
+
+
+/* ================= ADD CUSTOMER ================= */
+.form-container {
+  max-width: 500px;
+  margin: auto;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-grid.full {
+  grid-column: span 2;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #facc15;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* ================= LEADS ================= */
+.leads-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.lead-column {
+  background: #f1f5f9;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.lead-column h3 {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.lead-item {
+  background: #3b82f6;
+  color: #fff;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+/* ================= MOBILE PERFECT ================= */
+@media (max-width: 768px) {
+
+  /* Sidebar */
+  .sidebar {
+    position: fixed;
+    left: -220px;
+    top: 0;
+    height: 100vh;
+    z-index: 100;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .main-content {
+    padding: 12px;
+  }
+
+  /* Dashboard */
+  .cards-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Customer */
+  .customer-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  table {
+    min-width: 100%;
+  }
+
+  /* Add customer */
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid.full {
+    grid-column: span 1;
+  }
+
+  /* Leads */
+  .leads-board {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+@media (max-width: 480px) {
+
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-title {
+    font-size: 18px;
+  }
+
+  th, td {
+    font-size: 12px;
+  }
 }
